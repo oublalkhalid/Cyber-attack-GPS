@@ -2,24 +2,6 @@
 
 Dans cette revue, nous fournirons les codes sources de nos implémentations ainsi que le jeu de données correspondant. Le jeu de données se compose d'un ensemble de formation et d'un ensemble de test qui peuvent être utilisés pour former un nouveau modèle à partir de zéro et évaluer un modèle formé, respectivement. Nous fournissons également les modèles formés qui ont été utilisés dans notre procédure d'évaluation. L'entraînement et le test de nos modèles nécessitent un GPU compatible CUDA sous Linux OS, et le logiciel est implémenté en utilisant Python. Pour exécuter notre modèle embarqué, c'est-à-dire SqueezeNet v1.1, sur la plateforme IoT, un Raspberry Pi est nécessaire, où 3B+ avec CPU $\ge$ 1.4GHz et mémoire $\ge$ 1GB est recommandé. Notre logiciel dépend également de Pytorch, Numpy et d'autres bibliothèques Python pour fonctionner.
 
-
-- [DeepSim: GPS Spoofing Detection Artifact](#deepsim-gps-spoofing-detection-artifact)
-  - [Abstract](#abstract)
-  - [Objective](#objective)
-  - [How to Run](#how-to-run)
-    - [Environment](#environment)
-    - [Hardware Recommendation](#hardware-recommendation)
-    - [Software and Package](#software-and-package)
-  - [Data Directory Organization](#data-directory-organization)
-    - [Dataset](#dataset)
-    - [Data Augmentation](#data-augmentation)
-    - [Trained Models](#trained-models)
-    - [Commands to run](#commands-to-run)
-  - [Code File Organization](#code-file-organization)
-  - [Run on Raspberry Pi](#run-on-raspberry-pi)
-  - [Successful running screen shot](#successful-running-screen-shot)
-  - [Updating information](#updating-information)
-  - [Cite our work](#cite-our-work)
 ## Objective
 Exécutez nos modèles d'apprentissage profond, et ils compareront les photos aériennes avec les images satellites, pour voir si un drone est attaqué par usurpation de GPS.
 Voici un exemple d'une photo aérienne appariée et de l'image correspondante.
