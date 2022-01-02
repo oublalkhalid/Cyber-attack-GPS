@@ -5,7 +5,7 @@ Dans cette revue, nous fournirons les codes sources de nos implémentations ains
 ## Objective
 Exécutez nos modèles d'apprentissage profond, et ils compareront les photos aériennes avec les images satellites, pour voir si un drone est attaqué par usurpation de GPS.
 Voici un exemple d'une photo aérienne appariée et de l'image correspondante.
-![](https://i.imgur.com/9c5PGDD.jpg)
+![](src/1.png)
 
 
 ## Comment exécuter
@@ -27,10 +27,6 @@ Raspberry Pi est nécessaire, où 3B+ avec CPU ≥ 1.4GHz et mémoire ≥ 1GB es
 
 ### Logiciel et package
 Pytorch, Numpy, cuDNN, CUDA, OpenCV, pandas, h5py, tqdm,matplotlib, seaborn, sklearn, packaging.
-
-## Organisation des répertoires de données
-Les répertoires de données sont disponibles sur [Google Drive] (https://drive.google.com/drive/u/1/folders/1F0mMpq_C5RTKCVQiktFoZgUZLvRRpf2o).
-
 
 
 | Annuaire | Fonctionnalité |
