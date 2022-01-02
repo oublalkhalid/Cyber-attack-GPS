@@ -1,6 +1,6 @@
 # Détection de mystification GPS par apprentissage profond sur les drones et les appareils de navigation aérienne.
 ![](images/spoofing_satGPS.png)
-Dans cette revue, nous fournirons les codes sources de nos implémentations ainsi que le jeu de données correspondant. Le jeu de données se compose d'un ensemble de formation et d'un ensemble de test qui peuvent être utilisés pour former un nouveau modèle à partir de zéro et évaluer un modèle formé, respectivement. Nous fournissons également les modèles formés qui ont été utilisés dans notre procédure d'évaluation. L'entraînement et le test de nos modèles nécessitent un GPU compatible CUDA sous Linux OS, et le logiciel est implémenté en utilisant Python. Pour exécuter notre modèle embarqué, c'est-à-dire SqueezeNet v1.1, sur la plateforme IoT, un Raspberry Pi est nécessaire, où 3B+ avec CPU $\ge$ 1.4GHz et mémoire $\ge$ 1GB est recommandé. Notre logiciel dépend également de Pytorch, Numpy et d'autres bibliothèques Python pour fonctionner.
+Dans cette revue, nous fournirons les codes sources de nos implémentations ainsi que le jeu de données correspondant. Le jeu de données se compose d'un ensemble d'apprentissage et d'un ensemble de test qui peuvent être utilisés pour former un nouveau modèle à partir de zéro et évaluer un modèle formé, respectivement. Nous fournissons également les modèles formés qui ont été utilisés dans notre procédure d'évaluation. L'entraînement et le test de nos modèles nécessitent un GPU compatible CUDA sous Linux OS, et le logiciel est implémenté en utilisant Python. Pour exécuter notre modèle embarqué, c'est-à-dire SqueezeNet v1.1, sur la plateforme IoT, un Raspberry Pi est nécessaire, où 3B+ avec CPU $\ge$ 1.4GHz et mémoire $\ge$ 1GB est recommandé. Notre logiciel dépend également de Pytorch, Numpy et d'autres bibliothèques Python pour fonctionner.
 
 ## Objective
 Exécutez nos modèles d'apprentissage profond, et ils compareront les photos aériennes avec les images satellites, pour voir si un drone est attaqué par usurpation de GPS.
@@ -43,8 +43,8 @@ Ici, nous ne fournissons que des données prétraitées pour faciliter l'exécut
 | ---------------- | ------------------------------------------------------------ |
 | Angleterre_960x720 | Pour le test de la capacité de généralisation uniquement.                                                  	|
 | error_tolerance | Pour le test de tolérance aux erreurs.	|
-| full_960x720 | Pour la formation et la validation.
-| full_aug_960x720 | Pour la formation et la validation avec la technologie d'augmentation des données.
+| full_960x720 | Pour l'apprentissage et la validation.
+| full_aug_960x720 | Pour l'apprentissage et la validation avec la technologie d'augmentation des données.
 
 
 Si vous souhaitez obtenir l'ensemble des données brutes, veuillez envoyer un courriel à khalid.oublal@polytechnique ou oublalkhalid@gmail.com.
