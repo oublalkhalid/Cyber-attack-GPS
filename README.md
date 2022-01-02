@@ -5,7 +5,7 @@ Dans cette revue, nous fournirons les codes sources de nos implémentations ains
 ## Objective
 Exécutez nos modèles d'apprentissage profond, et ils compareront les photos aériennes avec les images satellites, pour voir si un drone est attaqué par usurpation de GPS.
 Voici un exemple d'une photo aérienne appariée et de l'image correspondante.
-![](images/1.png)
+![](images/spoofing_satGPS.png)
 
 
 ## Comment exécuter
