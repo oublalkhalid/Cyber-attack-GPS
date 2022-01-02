@@ -48,7 +48,7 @@ Ici, nous ne fournissons que des données prétraitées pour faciliter l'exécut
 
 
 Si vous souhaitez obtenir l'ensemble des données brutes, veuillez envoyer un courriel à khalid.oublal@polytechnique ou oublalkhalid@gmail.com.
-Veuillez d'abord visiter [Satellite imagery VS Aerial Photos (https://cyber-attack-oublalkhalid.ml)](https://cyber-attack-oublalkhalid.ml) pour télécharger le jeu de données et les fichiers nécessaires. 
+Veuillez d'abord visiter [Satellite imagery VS Aerial Photos (http://cyber-attack-oublalkhalid.ml)](http://cyber-attack-oublalkhalid.ml) pour télécharger le jeu de données et les fichiers nécessaires. 
 
 Pour les photos aériennes brutes de Merlischachen, Renens，Lausanne et de l'aéroport du Bourget, veuillez consulter [senseFly dataset](https://www.sensefly.com/education/datasets/) pour plus d'informations.
 
