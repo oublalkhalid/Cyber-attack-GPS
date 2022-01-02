@@ -1,8 +1,8 @@
-# DeepSim: GPS Spoofing Detection Artifact
+# GPS Spoofing Detection on Aircraft Drone UAVs
 This repo is the source code for **DeepSIM: GPS Spoofing Detection on UAVs using Satellite Imagery Matching**.
 
-## Abstract
-In this artifact, we will provide the source codes of our implementations as well as the corresponding dataset (approx.~12.08 Gigabyte with 967 aerial photos and paired satellite images), which are used in Section 8 of our accepted paper. The dataset consists of training set and test set which can be used to train a new model from scratch and evaluate a trained model, respectively. We also provide trained models that were used in our evaluation procedure. The training and testing of our models require a CUDA-enabled GPU in Linux OS, and the software is implemented using Python. To run our on-board model, i.e. SqueezeNet v1.1, on the IoT platform, a Raspberry Pi is needed, where 3B+ with CPU $\ge$ 1.4GHz and memory $\ge$ 1GB is recommended. Our software also depends on Pytorch, Numpy, and some other Python libraries for it to run.
+## Description
+Dans cette revue, nous fournirons les codes sources de nos implémentations ainsi que le jeu de données correspondant. Le jeu de données se compose d'un ensemble de formation et d'un ensemble de test qui peuvent être utilisés pour former un nouveau modèle à partir de zéro et évaluer un modèle formé, respectivement. Nous fournissons également les modèles formés qui ont été utilisés dans notre procédure d'évaluation. L'entraînement et le test de nos modèles nécessitent un GPU compatible CUDA sous Linux OS, et le logiciel est implémenté en utilisant Python. Pour exécuter notre modèle embarqué, c'est-à-dire SqueezeNet v1.1, sur la plateforme IoT, un Raspberry Pi est nécessaire, où 3B+ avec CPU $\ge$ 1.4GHz et mémoire $\ge$ 1GB est recommandé. Notre logiciel dépend également de Pytorch, Numpy et d'autres bibliothèques Python pour fonctionner.
 
 
 - [DeepSim: GPS Spoofing Detection Artifact](#deepsim-gps-spoofing-detection-artifact)
@@ -23,129 +23,109 @@ In this artifact, we will provide the source codes of our implementations as wel
   - [Updating information](#updating-information)
   - [Cite our work](#cite-our-work)
 ## Objective
-Run our deep learning models, and they will compare the aerial photos with the satellite images, to see whether a drone is attacked by GPS spoofing.
-An example of a paired aerial photo and its corresponding image is shown as follows.
+Exécutez nos modèles d'apprentissage profond, et ils compareront les photos aériennes avec les images satellites, pour voir si un drone est attaqué par usurpation de GPS.
+Voici un exemple d'une photo aérienne appariée et de l'image correspondante.
 ![](https://i.imgur.com/9c5PGDD.jpg)
 
 
-## How to Run
-Follow the instructions below, you can reproduce our program easily. 
+## Comment exécuter
+Suivez les instructions ci-dessous, vous pourrez reproduire notre programme facilement. 
 
-### Environment
-Anaconda + Python 3.7 or higher, and other software in requirements.txt.
+### Environnement
+Anaconda + Python 3.7 ou supérieur, et autres logiciels dans requirements.txt.
 
-Please create a conda env and install pytorch 1.4 and other software. Refer to `run.sh` for an example.
-Download the dataset we provided and put them under the source code folder. 
+Veuillez créer conda env et installer pytorch 1.4 et d'autres logiciels. Référez-vous à `run.sh` pour un exemple.
+Téléchargez les jeux de données que nous avons fournis et mettez-les dans le dossier du code source. 
 
-### Hardware Recommendation
-* On-ground
-If you want to train a model from scratch, a GPU with at least 16G video memory is recommended.
-We trained our models on an NVIDIA Tesla V100. Batch size is set to 2 if video memory is 16G and 4 if 32G. 
-Training new models on Cloud platform like [Google Colab](https://colab.research.google.com) is an option for your reference.
+### Recommandation de matériel
+* Sur le terrain
+Si vous voulez entraîner un modèle à partir de zéro, un GPU avec au moins 16G de mémoire vidéo est recommandé.
+Nous avons entraîné nos modèles sur un NVIDIA Tesla V100. La taille du lot est fixée à 2 si la mémoire vidéo est de 16G et à 4 si elle est de 32G. 
+L'entraînement de nouveaux modèles sur une plateforme en nuage comme [Google Colab] (https://colab.research.google.com) est une option pour votre référence.
 * On-board
-Raspberry Pi is needed, where 3B+ with CPU ≥ 1.4GHz and memory ≥ 1GB is recommended.
+Raspberry Pi est nécessaire, où 3B+ avec CPU ≥ 1.4GHz et mémoire ≥ 1GB est recommandé.
 
-### Software and Package
+### Logiciel et package
 Pytorch, Numpy, cuDNN, CUDA, OpenCV, pandas, h5py, tqdm,matplotlib, seaborn, sklearn, packaging.
 
-## Data Directory Organization
-The data derectories are available at [Google Drive](https://drive.google.com/drive/u/1/folders/1F0mMpq_C5RTKCVQiktFoZgUZLvRRpf2o).
+## Organisation des répertoires de données
+Les répertoires de données sont disponibles sur [Google Drive] (https://drive.google.com/drive/u/1/folders/1F0mMpq_C5RTKCVQiktFoZgUZLvRRpf2o).
 
-| Directory   | Functionality                                                |
+
+
+| Annuaire | Fonctionnalité |
 | ----------- | ------------------------------------------------------------ |
-| mid_product | h5 files, i.e., features extracted by the backbone neural network, ResNet. With those files you do not need to extract features from the original images, thus can speed up the detection process. |
-| models      | A series of trained models for GPS spoofing detection.       |
-| dataset     | Collected aerial photos and satellite images.                |
-|GPS-Spoofing-Detection     |Source code for training and test.
+| mid_product | h5, c'est-à-dire des caractéristiques extraites par le réseau neuronal dorsal, ResNet. Avec ces fichiers, il n'est pas nécessaire d'extraire les caractéristiques des images originales, ce qui permet d'accélérer le processus de détection. |
+| Une série de modèles entraînés pour la détection de l'usurpation d'identité GPS.       |
+| dataset | Des photos aériennes et des images satellites collectées.                |
+|Le code source pour l'entraînement et le test.
 
 ### Dataset
-Here we only provide preprocessed data for easy running and evalution. In general, these photos in our dataset can be devided into categories: aerial photography and satellite imagery. Each has its corresponding counterpart.
+Ici, nous ne fournissons que des données prétraitées pour faciliter l'exécution et l'évaluation. En général, les photos de notre jeu de données peuvent être divisées en deux catégories : les photographies aériennes et les images satellites. Chacune a sa contrepartie correspondante.
 
-| Name             | Description                                                  |
+| Nom | Description |
 | ---------------- | ------------------------------------------------------------ |
-| England_960x720                    	| For generalization ability test-only.                                                  	|
-| error_tolerance                	| For error tolerance test.	|
-| full_960x720                                           	| For training and validation.
-| full_aug_960x720                    	|For training and validation with data augmentation technology.
+| Angleterre_960x720 | Pour le test de la capacité de généralisation uniquement.                                                  	|
+| error_tolerance | Pour le test de tolérance aux erreurs.	|
+| full_960x720 | Pour la formation et la validation.
+| full_aug_960x720 | Pour la formation et la validation avec la technologie d'augmentation des données.
 
 
-If you want the raw dataset, please send an email to goldgaruda@gmail.com.
-Please first visit [Satellite imagery VS Aerial Photos](https://drive.google.com/drive/u/1/folders/1LKBjDpgqeuE7mjVdFYO9vbHBwPHjlzgG) to download the dataset and necessary files. 
-Then put the data into `config.GDRIVE_DIR`.
-For the raw aerial photos from Merlischachen, Renens，Lausanne and Le Bourget Airport, please visit [senseFly dataset](https://www.sensefly.com/education/datasets/) for more information.
+Si vous souhaitez obtenir l'ensemble des données brutes, veuillez envoyer un courriel à khalid.oublal@polytechnique ou oublalkhalid@gmail.com.
+Veuillez d'abord visiter [Satellite imagery VS Aerial Photos (https://cyber-attack-oublalkhalid.ml)](https://cyber-attack-oublalkhalid.ml) pour télécharger le jeu de données et les fichiers nécessaires. 
 
-### Data Augmentation
-We have provided data after augmentation. However, if you want to do it by yourself,
-For data augmentation source, please visit [Here](https://github.com/Lariiii/DeepSimDataAugmentation.git).
+Pour les photos aériennes brutes de Merlischachen, Renens，Lausanne et de l'aéroport du Bourget, veuillez consulter [senseFly dataset](https://www.sensefly.com/education/datasets/) pour plus d'informations.
 
-The implemented augmentation methods are: grayscaling, blurring, cropping, weather augmentation (e.g. snow, fog, clouds), rotating and adjusting the brightness (e.g. lighter or darker).
+### Augmentation des données
+Nous avons fourni des données après augmentation. Cependant, si vous souhaitez le faire vous-même,
+Pour la source d'augmentation des données, veuillez visiter [Here](https://github.com/oublalkhalid/Cyber-attack-GPS.git).
 
-An example of cloud and fog effect is shown below:
-![](https://i.imgur.com/BjsfPtz.jpg)
+Les méthodes d'augmentation mises en œuvre sont les suivantes : mise à l'échelle des gris, flou, recadrage, augmentation des conditions météorologiques (par exemple, neige, brouillard, nuages), rotation et ajustement de la luminosité (par exemple, plus clair ou plus foncé).
 
+* générer les nouvelles images prétraitées en exécutant le fichier augmentation.py avec le nombre souhaité de paires d'images générées et de chemins de fichiers adaptés.
 
-* generate the newly preprocessed images by running the augmentation.py file with the desired amount of generated image pairs and adapted filepaths
-* if you want to generate preprocessed images for all available images, then run the augmentation.py file for every available method and the amount of all available pairs
+* Si vous souhaitez générer des images prétraitées pour toutes les images disponibles, exécutez le fichier augmentation.py pour chaque méthode disponible et le nombre de paires disponibles.
+
 
 ```
 python augmentation.py
 ```
 
-### Trained Models
-We also provide our trained models for GPS spoofing inferences. With these models, you do not need to train a new one from scratch for detection. You can directly use it to carry out the evaluation.
+### Modèles formés
+Nous fournissons également nos modèles entraînés pour les déductions relatives à l'usurpation d'identité par GPS. Avec ces modèles, vous n'avez pas besoin d'en former un nouveau à partir de zéro pour la détection. Vous pouvez l'utiliser directement pour effectuer l'évaluation.
 
-Besides, you can use the preprocessed data to train a completely new model as you like.
+En outre, vous pouvez utiliser les données pré-traitées pour former un modèle entièrement nouveau, comme vous le souhaitez.
 
-### Commands to run
-1. With proper environment setup and dataset downloaded to the source code folder, you can now start to run the training and evaluation procedure.
-2. For training Siamese ResNet, please run:
+### Commandes à exécuter
+1. Une fois l'environnement correctement configuré et le jeu de données téléchargé dans le dossier du code source, vous pouvez maintenant commencer à exécuter la procédure d'entraînement et d'évaluation.
+2. Pour l'entraînement de Siamese ResNet, veuillez exécuter :
 `python train.py --model SiameseResNet --data aug --margin 4 --lr 3e-4 --step 10 --nepoch 50 --batch_size 4` 
-For evaluation, please run:
-`python evaluate.py --model SiameseResNet --margin 4 --weight [modelname].pth`
+Pour l'évaluation, veuillez exécuter :
+`python evaluate.py --modèle SiameseResNet --margin 4 --weight [modelname].pth`
 
-3. Please see more examples and explanations in `run.sh`.
+3. Veuillez voir plus d'exemples et d'explications dans `run.sh`.
 
-## Code File Organization
-| File                         	| Functionality                                                       	|
+## Organisation du fichier de code
+| Fichier | Fonctionnalité |
 | ---------------- | ------------------------------------------------------------ |
-| config.py                    	| Configurations.                                                    	|
-| DataLoader.py                	| Basic data loader functions, mostly used for model 1 in the paper. 	|
-| Dataset.py                   	| Pytorch Dataset Classes.                                           	|
-| train.py                     	| Training code.                                                     	|
-| evaluate.py                  	| Evaluation code (spoofing detection).                                 |
-| net.py                       	| Neural Network definitions.                                        	|
-| preprocess.py                	| Resize rename and generate h5py data file.                         	|
-| utils.py                     	| Utility code.                                                     	|
-| euclidean_distance.py       	| Model 1 code.                                                     	|
-| run.sh                       	| Examples of commands to run our software.                             |
-| rpi.md                     	| Instruction for Raspberry Pi.                                        	|
-| requirements.txt             	| Python software requirements.                                      	|
-| Draw_ROC_loss.ipynb       	| Jupyter notebook to draw ROC curves.                                 	|
-| GPS_Spoofing_Detection.ipynb 	| Model 1 Jupyter notebook.                                          	|
-| Visualize_Model.ipynb        	| Jupyter notebook to visualize the models.                          	|
+| config.py | Configurations.                                                    	|
+| DataLoader.py | Fonctions de base du chargeur de données, principalement utilisées pour le modèle 1 dans l'article. 	|
+| Dataset.py | Classes de jeux de données Pytorch.                                           	|
+| train.py | Code d'entraînement.                                                     	|
+| evaluate.py | Code d'évaluation (détection d'usurpation).                                 |
+| net.py | Définitions du réseau neuronal.                                        	|
+| preprocess.py | Redimensionnement, renommage et génération du fichier de données h5py.                         	|
+| utils.py | Code utilitaire.                                                     	|
+| euclidean_distance.py | Code du modèle 1.                                                     	|
+| run.sh | Exemples de commandes pour exécuter notre logiciel.                             |
+| rpi.md | Instructions pour Raspberry Pi.                                        	|
+| requirements.txt | Configuration requise pour le logiciel Python.                                      	|
+| Draw_ROC_loss.ipynb | Jupyter notebook pour dessiner les courbes ROC.                                 	|
+| GPS_Spoofing_Detection.ipynb | Modèle 1 Jupyter notebook.                                          	|
+| Visualize_Model.ipynb | Bloc-notes Jupyter pour visualiser les modèles.                          	|
 
 
-## Run on Raspberry Pi
-If you want to run models on Raspberry Pi, please refer to `rpi.md`.
+## Exécution sur Raspberry Pi
+Si vous voulez exécuter des modèles sur Raspberry Pi, veuillez vous référer à `raspberry.md`.
 
-## Successful running screen shot
-An successful training result (1 epoch) is shown below.
-![](https://i.imgur.com/VljSa0S.png)
-
-
-## Updating information
-Please visit [here](https://hackmd.io/2GvHLw2wQSSMqwEzMDFx4A) for the newest updating.
-
-## Cite our work
-Please use the following bibtex code to cite our work:
-```
-@InProceedings{nian2020deepsim,
-  title={{DeepSIM: GPS Spoofing Detection on UAVs using Satellite Imagery Matching}},
-  author={Nian Xue, Liang Niu, Xianbin Hong, Zhen Li, Larissa Hoffaeller, Christina Pöpper},
-  booktitle={Proceedings of the Annual Computer Security Applications Conference 
-  (ACSAC)},
-  year={2020},
-  doi={10.1145/3427228.3427254}
-}
-```
 
